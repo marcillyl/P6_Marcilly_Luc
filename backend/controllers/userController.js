@@ -19,3 +19,21 @@ exports.signup = ((req, res, next) => {
         })
     })
 });
+
+exports.login = ((req, res, next) => {
+    User.findOne({ email: req.body.email })
+        .then(user => {
+            if (!user) {
+                return res.status(401).json({ error: 'Unknown user !' });
+            }
+            if (req.body.password === user.password)
+                res.status(200).json({
+                    userId: user._id,
+                    token : 'TOKEN'
+                })
+            else {
+                res.status(401).json({ message: 'Wrong password !' });
+            }
+        })
+        .catch(error => res.status(500).json({ error }));
+});

@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const userRoute = require('./routes/userRoute.js');
+const sauceRoute = require('./routes/sauceRoute.js');
 
 const app = express();
 
@@ -23,5 +24,6 @@ mongoose.connect('mongodb+srv://marcillyl:HZtIvFYyovXDEztI@cluster0.r5hhf.mongod
     .catch(() => console.log('Connexion à MongoDB échouée !'));
 
 app.use('/api/auth', userRoute);
+app.use('/api/sauces', sauceRoute);
 
 module.exports = app;
