@@ -1,12 +1,21 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const userRoute = require('./routes/userRoute.js');
 const sauceRoute = require('./routes/sauceRoute.js');
 const path = require('path');
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
+const limiter = rateLimit({
+    windowMs : 14 * 60 * 1000,
+    max : 70
+});
 
 const app = express();
 
 app.use(express.json());
+app.use(limiter);
+app.use(helmet());
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -15,7 +24,7 @@ app.use((req, res, next) => {
     next();
 });
 
-mongoose.connect('mongodb+srv://marcillyl:HZtIvFYyovXDEztI@cluster0.r5hhf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+mongoose.connect(process.env.DB_URI,
     {
         useNewUrlParser: true,
         useUnifiedTopology: true

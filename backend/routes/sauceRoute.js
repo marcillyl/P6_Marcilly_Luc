@@ -9,6 +9,6 @@ router.get('/:id', auth, sauceCtrl.getOneSauce);
 router.post('/', auth, upload, sauceCtrl.addNewSauce);
 router.put('/:id', auth, upload, sauceCtrl.updateOneSauce);
 router.delete('/:id', auth, sauceCtrl.deleteOneSauce);
-router.post('/:id/like', auth, sauceCtrl.like);
+router.post('/:id/like', auth, sauceCtrl.rateSauce);
 
 module.exports = router;
