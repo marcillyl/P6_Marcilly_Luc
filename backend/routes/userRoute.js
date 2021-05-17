@@ -6,7 +6,7 @@ const userCtrl = require('../controllers/userController.js'); // Importation du 
 const rateLimit = require('express-rate-limit');
 const limiterLogin = rateLimit({
     windowMs : 10 * 60 * 1000,
-    max : 10
+    max : 50
 });
 
 // Création des routes Inscription et Connexion de l'API
