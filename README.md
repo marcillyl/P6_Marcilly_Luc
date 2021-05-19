@@ -8,6 +8,8 @@
 
 'ng serve' dans /frontend.
 
+'npm install -g nodemon' dans /backend
+
 'nodemon server' dans /backend.
 
 Rendez-vous sur `http://localhost:4200/`.
