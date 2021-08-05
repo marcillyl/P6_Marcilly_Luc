@@ -1,13 +1,19 @@
-## P6_Marcilly_Luc
+# P6_Marcilly_Luc
 
-'npm install' dans /frontend.
+Pour executer l'application :
 
-'npm install -g @angular/cli' dans /frontend.
+# frontend
 
-'ng serve' dans /frontend.
+"npm install"
 
-'npm install -g nodemon' dans /backend
+"npm install -g @angular/cli"
 
-'nodemon server' dans /backend.
+"ng serve"
 
-Rendez-vous sur `http://localhost:4200/`.
+# backend
+
+"npm install"
+
+"node server"
+
+# Rendez-vous sur localhost:4200
